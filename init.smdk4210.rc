@@ -46,6 +46,21 @@ on fs
     mkdir /data/misc/radio 0775 radio system
     chmod 0770 /data/misc/wifi 
 
+# Restorecon
+    restorecon /efs/nv_data.bin
+    restorecon /efs/nv_data.bin.md5
+    restorecon /efs/.nv_core.bak
+    restorecon /efs/.nv_core.bak.md5
+    restorecon /efs/.nv_data.bak
+    restorecon /efs/.nv_data.bak.md5
+    restorecon /efs/.nv_state
+    restorecon /efs/bluetooth/bt_addr
+    restorecon /efs/FactoryApp/factorymode
+    restorecon /efs/FactoryApp/hw_ver
+    restorecon /efs/FactoryApp/keystr
+    restorecon /efs/FactoryApp/serial_no
+    restorecon /efs/imei/mps_code.dat
+
 on post-fs-data
 # insmod kernel modules
     insmod /system/lib/modules/j4fs.ko
@@ -226,8 +241,8 @@ on post-fs-data
 # Vibetonz
     chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
-    chmod 0660 /sys/vibrator/pwm_val
-    chown system system /sys/vibrator/pwm_val
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_value
 
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/lcd_power
