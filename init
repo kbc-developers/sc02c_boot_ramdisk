@@ -96,7 +96,6 @@ $BB cp /lib/modules/* /system/lib/modules/
 $BB echo "making init.d"
 $BB mkdir /system/etc/init.d
 $BB chmod 777 /system/etc/init.d
-$BB umount /data
 
 $BB echo "command line:"
 $BB cat /proc/cmdline
